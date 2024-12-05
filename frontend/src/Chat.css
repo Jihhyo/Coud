@@ -1,0 +1,116 @@
+/* Conteneur principal de la page du chat */
+.chat-page {
+    display: flex;
+    justify-content: center; /* Centre la boîte de chat horizontalement */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    position: relative;
+    height: 100vh; /* Prend toute la hauteur de la page */
+}
+
+/* Liste des utilisateurs en ligne */
+.online-users {
+    position: fixed; /* Fixe la liste des utilisateurs sur le côté gauche */
+    top: 20px;
+    left: 20px; /* Colle sur le côté gauche de la page */
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f5f5f5; /* Changez la couleur de fond */
+    height: calc(100vh - 40px); /*Garde la hauteur de la fenêtre moins le padding */
+    overflow-y: auto; /* Rend la liste défilable si elle est trop longue */
+}
+
+/* Chat wrapper pour centrer */
+.chat-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Prend le reste de l'espace disponible */
+}
+
+/* Boîte de chat */
+.chat-container {
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f5f5f5; /* Changez la couleur de fond */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligne les éléments à gauche */
+    margin: auto; /* Centre la boîte de chat */
+}
+
+/* Messages dans la boîte de chat */
+.chat-messages {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Couleur de fond des messages */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne tous les messages à gauche */
+}
+
+/* Style des messages individuels */
+.chat-message {
+    margin: 5px 0; /* Ajoute un espacement entre les messages */
+    max-width: 80%; /* Limite la largeur des messages */
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0e0e0; /* Couleur uniforme pour tous les messages */
+    color: black; /* Couleur de texte */
+}
+
+/* Formulaire d'envoi de messages */
+.chat-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Styles des inputs */
+input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Bouton d'envoi */
+.btn {
+    padding: 10px;
+    background-color: #007bff; /* Couleur du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Styles pour les GIFs */
+.gif {
+    max-width: 100%; /* S'assure que les GIFs ne dépassent pas la largeur de leur conteneur */
+    height: auto; /* Garde le ratio de l'image */
+    border-radius: 10px; /* Ajoute des coins arrondis aux GIFs */
+}
+
+/* Styles pour la liste des utilisateurs */
+.online-users li {
+    list-style: none; /* Supprime les puces */
+    padding: 5px; /* Ajoute un espacement */
+    border-bottom: 1px solid #ccc; /* Ajoute une ligne de séparation */
+}
+
+/* Alignement à gauche pour les utilisateurs en ligne */
+.online-users li {
+    text-align: left; /* Aligne le texte à gauche */
+    color: black; /* Uniformise la couleur des utilisateurs en ligne */
+}
+.message-time {
+    font-size: 10px;  /* Taille de police plus petite pour l'heure */
+    color: rgb(218, 30, 30);      /* Couleur gris pour différencier l'heure */
+}

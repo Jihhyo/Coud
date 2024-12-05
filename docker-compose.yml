@@ -1,0 +1,87 @@
+version: '3.8'
+
+networks:
+  chatbox-network: # Déclaration du réseau dédié
+    driver: bridge
+
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=adrien
+      - DB_PASSWORD=adrien0302
+      - DB_NAME=chatbox_db
+    depends_on:
+      - db
+    networks:
+      - chatbox-network  # Liaison au réseau
+    restart: always
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - chatbox-network  # Liaison au réseau
+
+  register-service:
+    build: 
+      context: ./register-service
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=adrien
+      - DB_PASSWORD=adrien0302
+      - DB_NAME=chatbox_db
+    depends_on:
+      - db
+    networks:
+      - chatbox-network  # Liaison au réseau
+    restart: always
+
+  login-service:
+    build: 
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "4002:4002"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=adrien
+      - DB_PASSWORD=adrien0302
+      - DB_NAME=chatbox_db
+    depends_on:
+      - db
+    networks:
+      - chatbox-network  # Liaison au réseau
+    restart: always
+
+  db:
+    image: mysql:5.7
+    container_name: mysql_container
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: chatbox_db
+      MYSQL_USER: adrien
+      MYSQL_PASSWORD: adrien0302
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - chatbox-network  # Liaison au réseau
+    restart: always
