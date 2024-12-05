@@ -1,6 +1,6 @@
 Projet Chat Dockerisé
 
-Bienvenue dans le projet de chat dockerisé. Ce projet est une application web qui permet à des utilisateurs de se créer un compte, se connecter et discuter en temps réel dans un salon de discussion. L'application est entièrement conteneurisée avec Docker et comprend plusieurs services indépendants.
+Ce projet est une application web qui permet à des utilisateurs de se créer un compte, se connecter et discuter en temps réel dans un salon de discussion. L'application est entièrement conteneurisée avec Docker et comprend plusieurs services indépendants.
 Architecture de l'application
 
 L'application est composée des services suivants :
@@ -11,7 +11,7 @@ L'application est composée des services suivants :
     Base de données (MySQL) : Stockage des informations des utilisateurs et des messages.
 
 Prérequis:
-    Docker et Docker Compose installés sur votre machine.
+    Docker et Docker Compose
 
 Installation et Lancement
 Clonez ce dépôt :
