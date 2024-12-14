@@ -21,7 +21,7 @@ Clonez ce dépôt :
 
 Lancez tous les services avec Docker Compose :
             
-    docker-compose up -d
+    docker-compose up --build
 
 Vérifiez que tous les conteneurs sont démarrés :
 
